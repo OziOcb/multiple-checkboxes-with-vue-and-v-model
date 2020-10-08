@@ -4,23 +4,27 @@
     <div>{{ myCheckBoxModel }}</div>
     <br />
 
-    <div v-for="item in checkOptions" :key="item.id">
-      <input
-        :value="item.value"
-        v-model="myCheckBoxModel"
-        :id="item.id"
-        type="checkbox"
-      />
-
-      <label :for="item.id">input {{ item.label }}</label>
-    </div>
+    <Checkbox
+      v-for="item in checkOptions"
+      :key="item.id"
+      :val="item.value"
+      v-model="myCheckBoxModel"
+    >
+      {{ item.label }}
+    </Checkbox>
   </div>
 </template>
 
 <script>
+import Checkbox from "@/components/Checkbox.vue";
+
 export default {
+  components: {
+    Checkbox
+  },
+
   data: () => ({
-    myCheckBoxModel: [],
+    myCheckBoxModel: ["value of option 3"],
 
     checkOptions: [
       { id: 1, label: "Option 1", value: "value of option 1" },
