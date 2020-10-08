@@ -4,27 +4,27 @@
     <div>{{ myCheckBoxModel }}</div>
     <br />
 
-    <Checkbox
+    <Wrapper
       v-for="item in checkOptions"
       :key="item.id"
-      :val="item.value"
+      :item="item"
       v-model="myCheckBoxModel"
     >
       {{ item.label }}
-    </Checkbox>
+    </Wrapper>
   </div>
 </template>
 
 <script>
-import Checkbox from "@/components/Checkbox.vue";
+import Wrapper from "@/components/Wrapper.vue";
 
 export default {
   components: {
-    Checkbox
+    Wrapper
   },
 
   data: () => ({
-    myCheckBoxModel: ["value of option 3"],
+    myCheckBoxModel: ["value of option 4", "value of option 2"],
 
     checkOptions: [
       { id: 1, label: "Option 1", value: "value of option 1" },
