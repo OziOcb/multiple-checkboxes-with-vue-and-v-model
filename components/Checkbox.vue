@@ -1,6 +1,11 @@
 <template>
   <label>
-    <input type="checkbox" :value="val" v-model="checked" @change="onChange" />
+    <input
+      type="checkbox"
+      :value="value"
+      v-model="checkedItems"
+      @change="onChange"
+    />
     <slot />
   </label>
 </template>
@@ -8,26 +13,33 @@
 <script>
 export default {
   name: "CheckBox",
+  props: ["checked", "value"],
 
-  props: ["value", "val"],
+  model: {
+    prop: "checked",
+    event: "change"
+  },
+
   data() {
     return {
       checkedProxy: false
     };
   },
+
   computed: {
-    checked: {
+    checkedItems: {
       get() {
-        return this.value;
+        return this.checked;
       },
-      set(val) {
-        this.checkedProxy = val;
+      set(value) {
+        this.checkedProxy = value;
       }
     }
   },
+
   methods: {
-    onChange: function(e) {
-      this.$emit("input", this.checkedProxy);
+    onChange() {
+      this.$emit("change", this.checkedProxy);
     }
   }
 };

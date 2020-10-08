@@ -24,13 +24,17 @@ export default {
   },
 
   data: () => ({
-    myCheckBoxModel: ["value of option 4", "value of option 2"],
+    myCheckBoxModel: [
+      "816c15e5-4c98-4f26-a747-ed8fc9c1d690",
+      "b4cb3cf9-44f8-42ea-93f1-b02fceefbb0c"
+    ],
 
     checkOptions: [
-      { id: 1, label: "Option 1", value: "value of option 1" },
-      { id: 2, label: "Option 2", value: "value of option 2" },
-      { id: 3, label: "Option 3", value: "value of option 3" },
-      { id: 4, label: "Option 4", value: "value of option 4" }
+      { id: "816c15e5-4c98-4f26-a747-ed8fc9c1d690" },
+      { id: "f112cc23-32d3-4b48-b112-52bbc2878a3b" },
+      { id: "d2193120-928a-48c9-b17d-ddc2b7bdb47f" },
+      { id: "b4cb3cf9-44f8-42ea-93f1-b02fceefbb0c" },
+      { id: "4879e8c2-eb00-4c5c-bc63-7c4a1963e145" }
     ]
   })
 };

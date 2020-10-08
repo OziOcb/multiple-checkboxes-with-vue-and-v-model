@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div>this is wrapper</div>
+    <div>wrapper component</div>
 
-    <Checkbox v-model="checked" :val="item.value" @input="onChange">
-      {{ item.label }}
+    <Checkbox v-model="checkedItems" :value="item.id" @change="onChange">
+      checkbox label
     </Checkbox>
+
+    <br />
   </div>
 </template>
 
@@ -12,29 +14,35 @@
 import Checkbox from "@/components/Checkbox.vue";
 
 export default {
-  components: {
-    Checkbox
+  components: { Checkbox },
+
+  props: ["checked", "item"],
+
+  model: {
+    prop: "checked",
+    event: "change"
   },
-  props: ["item", "value"],
 
   data() {
     return {
       checkedProxy: false
     };
   },
+
   computed: {
-    checked: {
+    checkedItems: {
       get() {
-        return this.value;
+        return this.checked;
       },
       set(val) {
         this.checkedProxy = val;
       }
     }
   },
+
   methods: {
-    onChange: function(e) {
-      this.$emit("input", this.checkedProxy);
+    onChange() {
+      this.$emit("change", this.checkedProxy);
     }
   }
 };
