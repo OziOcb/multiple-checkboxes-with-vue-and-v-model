@@ -21,7 +21,7 @@ export const state = () => ({
     { id: "ID_20", label: "L20" },
     { id: "ID_21", label: "L21" }
   ],
-  selectedItemsIds: ["ID_07", "ID_16"]
+  selectedItemsIds: ["ID_07"]
 });
 
 export const getters = {

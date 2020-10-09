@@ -1,18 +1,13 @@
 <template>
   <div style="display: flex">
     <div class="itemsBox">
-      <Wrapper
-        v-for="item in getBasketItems"
-        :key="item.id"
-        :item-props="item"
-        v-model="selectedItemsIds"
-      >
+      <Wrapper v-for="item in getBasketItems" :key="item.id" :item-props="item">
         {{ item.label }}
       </Wrapper>
     </div>
 
     <ul>
-      <li v-for="item in selectedItemsIds" :key="item">
+      <li v-for="item in getSelectedItemsIds" :key="item">
         {{ item }}
       </li>
     </ul>
@@ -20,7 +15,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import Wrapper from "@/components/Wrapper.vue";
 
 export default {
@@ -32,21 +27,7 @@ export default {
     ...mapGetters({
       getBasketItems: "basket/getBasketItems",
       getSelectedItemsIds: "basket/getSelectedItemsIds"
-    }),
-
-    selectedItemsIds: {
-      get() {
-        return this.getSelectedItemsIds;
-      },
-      set(newSelectedItemsIds) {
-        this.updateSelectedItemsIds(newSelectedItemsIds);
-        return newSelectedItemsIds;
-      }
-    }
-  },
-
-  methods: {
-    ...mapActions({ updateSelectedItemsIds: "basket/updateSelectedItemsIds" })
+    })
   }
 };
 </script>

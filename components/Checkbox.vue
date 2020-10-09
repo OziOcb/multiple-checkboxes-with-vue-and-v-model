@@ -19,7 +19,7 @@ export default {
 
   model: {
     prop: "checked",
-    event: "change"
+    event: "changeState"
   },
 
   props: {
@@ -52,7 +52,7 @@ export default {
 
   methods: {
     onChange() {
-      this.$emit("change", this.checkedProxy);
+      this.$emit("changeState", this.checkedProxy);
     }
   }
 };

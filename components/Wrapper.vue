@@ -1,54 +1,41 @@
 <template>
   <div class="wrapper">
-    <Checkbox v-model="checkedItems" :value="itemProps.id" @change="onChange">
+    <Checkbox v-model="selectedItemsIds" :value="itemProps.id">
       {{ itemProps.label }}
     </Checkbox>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Checkbox from "@/components/Checkbox.vue";
 
 export default {
   components: { Checkbox },
 
-  model: {
-    prop: "checked",
-    event: "change"
-  },
-
   props: {
-    checked: {
-      type: Array,
-      required: true
-    },
     itemProps: {
       type: Object,
       required: true
     }
   },
 
-  data() {
-    return {
-      checkedProxy: false
-    };
-  },
-
   computed: {
-    checkedItems: {
+    ...mapGetters({ getSelectedItemsIds: "basket/getSelectedItemsIds" }),
+
+    selectedItemsIds: {
       get() {
-        return this.checked;
+        return this.getSelectedItemsIds;
       },
-      set(val) {
-        this.checkedProxy = val;
+      set(newSelectedItemsIds) {
+        this.updateSelectedItemsIds(newSelectedItemsIds);
+        return newSelectedItemsIds;
       }
     }
   },
 
   methods: {
-    onChange() {
-      this.$emit("change", this.checkedProxy);
-    }
+    ...mapActions({ updateSelectedItemsIds: "basket/updateSelectedItemsIds" })
   }
 };
 </script>
