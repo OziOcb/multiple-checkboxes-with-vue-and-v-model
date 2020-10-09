@@ -17,7 +17,7 @@
 
       <ul>
         <li v-for="(item, index) in getSelectedItemsIds" :key="item">
-          {{ index }}. {{ item }}
+          {{ index + 1 }}. {{ item }}
         </li>
       </ul>
     </div>

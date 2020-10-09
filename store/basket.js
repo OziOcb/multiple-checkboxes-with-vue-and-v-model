@@ -3,7 +3,7 @@ import { basketItemsArr } from "~/basketItems";
 export const state = () => ({
   totalPrice: 0,
   selectedItemsPrice: 0,
-  selectedItemsIds: ["911c7664-bc0d-4905-ad66-1045ce17a6b3"],
+  selectedItemsIds: [],
 
   basketItems: [...basketItemsArr]
 });
@@ -31,11 +31,18 @@ export const getters = {
 export const actions = {
   updateSelectedItemsIds({ commit }, newSelectedItemsIds) {
     commit("UPDATE_SELECTED_ITEMS_IDS", newSelectedItemsIds);
+  },
+
+  setAllItemsAsSelected({ commit }) {
+    commit("SET_ALL_ITEMS_AS_SELECTED");
   }
 };
 
 export const mutations = {
   UPDATE_SELECTED_ITEMS_IDS: (state, newSelectedItemsIds) => {
     state.selectedItemsIds = newSelectedItemsIds;
+  },
+  SET_ALL_ITEMS_AS_SELECTED: state => {
+    state.selectedItemsIds = state.basketItems.map(item => item.id);
   }
 };
