@@ -4,8 +4,7 @@
       :id="value"
       type="checkbox"
       :value="value"
-      v-model="checkedItems"
-      @change="onChange"
+      v-model="checkedItemsIds"
     />
     <label :for="value">
       <slot />
@@ -15,15 +14,13 @@
 
 <script>
 export default {
-  name: "CheckBox",
-
   model: {
-    prop: "checked",
+    prop: "checkedItemsIdsProp",
     event: "changeState"
   },
 
   props: {
-    checked: {
+    checkedItemsIdsProp: {
       type: Array,
       required: true
     },
@@ -33,26 +30,14 @@ export default {
     }
   },
 
-  data() {
-    return {
-      checkedProxy: false
-    };
-  },
-
   computed: {
-    checkedItems: {
+    checkedItemsIds: {
       get() {
-        return this.checked;
+        return this.checkedItemsIdsProp;
       },
       set(value) {
-        this.checkedProxy = value;
+        this.$emit("changeState", value);
       }
-    }
-  },
-
-  methods: {
-    onChange() {
-      this.$emit("changeState", this.checkedProxy);
     }
   }
 };
