@@ -21,26 +21,29 @@ export const state = () => ({
     { id: "ab851ff9-308d-4b1f-b40c-485db01df63e", label: "20" },
     { id: "742975e8-a79d-4921-a251-3a3cb591abed", label: "21" }
   ],
-  selectedItemsIds: []
+  selectedItemsIds: [
+    "06072913-6841-4090-a0b4-1be6bb198618",
+    "9c0bb186-3780-4476-8bf0-52734dd720e7"
+  ]
 });
 
 export const getters = {
   getBasketItems: state => {
     return state.basketItems;
   },
-  getSelectedParcelsIds: state => {
+  getSelectedItemsIds: state => {
     return state.selectedItemsIds;
   }
 };
 
-// export const actions = {
-//   updateActionValue({ commit }) {
-//     commit("updateValue", payload);
-//   }
-// };
+export const actions = {
+  updateSelectedItemsIds({ commit }, newSelectedItemsIds) {
+    commit("UPDATE_SELECTED_ITEMS_IDS", newSelectedItemsIds);
+  }
+};
 
-// export const mutations = {
-//   updateValue: (state, payload) => {
-//     state.value = payload;
-//   }
-// };
+export const mutations = {
+  UPDATE_SELECTED_ITEMS_IDS: (state, newSelectedItemsIds) => {
+    state.selectedItemsIds = newSelectedItemsIds;
+  }
+};

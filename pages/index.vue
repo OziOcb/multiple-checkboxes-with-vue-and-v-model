@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Wrapper from "@/components/Wrapper.vue";
 
 export default {
@@ -28,15 +28,25 @@ export default {
     Wrapper
   },
 
-  data: () => ({
-    selectedItemsIds: [
-      "06072913-6841-4090-a0b4-1be6bb198618",
-      "9c0bb186-3780-4476-8bf0-52734dd720e7"
-    ]
-  }),
-
   computed: {
-    ...mapGetters({ getBasketItems: "basket/getBasketItems" })
+    ...mapGetters({
+      getBasketItems: "basket/getBasketItems",
+      getSelectedItemsIds: "basket/getSelectedItemsIds"
+    }),
+
+    selectedItemsIds: {
+      get() {
+        return this.getSelectedItemsIds;
+      },
+      set(newSelectedItemsIds) {
+        this.updateSelectedItemsIds(newSelectedItemsIds);
+        return newSelectedItemsIds;
+      }
+    }
+  },
+
+  methods: {
+    ...mapActions({ updateSelectedItemsIds: "basket/updateSelectedItemsIds" })
   }
 };
 </script>
