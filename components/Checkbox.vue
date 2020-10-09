@@ -1,12 +1,12 @@
 <template>
   <div class="checkbox">
     <input
-      :id="value"
+      :id="itemId"
       type="checkbox"
-      :value="value"
-      v-model="checkedItemsIds"
+      :value="itemId"
+      v-model="selectedItemsIds"
     />
-    <label :for="value">
+    <label :for="itemId">
       <slot />
     </label>
   </div>
@@ -15,28 +15,28 @@
 <script>
 export default {
   model: {
-    prop: "checkedItemsIdsProp",
+    prop: "selectedItemsIdsProps",
     event: "changeState"
   },
 
   props: {
-    checkedItemsIdsProp: {
+    selectedItemsIdsProps: {
       type: Array,
       required: true
     },
-    value: {
+    itemId: {
       type: String,
       required: true
     }
   },
 
   computed: {
-    checkedItemsIds: {
+    selectedItemsIds: {
       get() {
-        return this.checkedItemsIdsProp;
+        return this.selectedItemsIdsProps;
       },
-      set(value) {
-        this.$emit("changeState", value);
+      set(newSelectedItemsIdsArray) {
+        this.$emit("changeState", newSelectedItemsIdsArray);
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Checkbox v-model="selectedItemsIds" :value="itemProps.id">
+    <Checkbox v-model="selectedItemsIds" :itemId="itemProps.id">
       {{ itemProps.label }}
     </Checkbox>
   </div>
