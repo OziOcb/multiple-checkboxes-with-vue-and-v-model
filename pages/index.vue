@@ -56,12 +56,14 @@ export default {
 
 <style>
 .itemsBox {
-  width: 400px;
+  min-width: 800px;
+  width: 800px;
 }
 
 ul {
-  font-size: 12px;
+  font-size: 10px;
   padding-left: 24px;
   list-style: none;
+  columns: 200px 4;
 }
 </style>
