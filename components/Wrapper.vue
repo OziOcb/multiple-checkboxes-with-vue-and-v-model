@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <Checkbox v-model="checkedItems" :value="item.id" @change="onChange">
-      checkbox label
+    <Checkbox v-model="checkedItems" :value="itemProps.id" @change="onChange">
+      {{ itemProps.label }}
     </Checkbox>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
       type: Array,
       required: true
     },
-    item: {
+    itemProps: {
       type: Object,
       required: true
     }
@@ -55,6 +55,7 @@ export default {
 
 <style>
 .wrapper {
-  margin-bottom: 3px;
+  background-color: #444;
+  display: inline-block;
 }
 </style>

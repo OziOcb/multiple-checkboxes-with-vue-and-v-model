@@ -61,21 +61,22 @@ export default {
 <style scoped>
 .checkbox {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
 label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   background-color: #333;
   cursor: pointer;
-  padding: 5px 10px;
 }
 
 input {
-  position: absolute;
-  left: 8px;
   display: none;
 }
 
