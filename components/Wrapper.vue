@@ -12,11 +12,20 @@ import Checkbox from "@/components/Checkbox.vue";
 export default {
   components: { Checkbox },
 
-  props: ["checked", "item"],
-
   model: {
     prop: "checked",
     event: "change"
+  },
+
+  props: {
+    checked: {
+      type: Array,
+      required: true
+    },
+    item: {
+      type: Object,
+      required: true
+    }
   },
 
   data() {
@@ -46,8 +55,6 @@ export default {
 
 <style>
 .wrapper {
-  padding: 5px;
   margin-bottom: 3px;
-  background-color: #ada;
 }
 </style>

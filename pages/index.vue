@@ -34,11 +34,11 @@ export default {
     ],
 
     checkOptions: [
-      { id: "816c15e5-4c98-4f26-a747-ed8fc9c1d690" },
-      { id: "f112cc23-32d3-4b48-b112-52bbc2878a3b" },
-      { id: "d2193120-928a-48c9-b17d-ddc2b7bdb47f" },
-      { id: "b4cb3cf9-44f8-42ea-93f1-b02fceefbb0c" },
-      { id: "4879e8c2-eb00-4c5c-bc63-7c4a1963e145" }
+      { id: "816c15e5-4c98-4f26-a747-ed8fc9c1d690", label: "Option 01" },
+      { id: "f112cc23-32d3-4b48-b112-52bbc2878a3b", label: "Option 02" },
+      { id: "d2193120-928a-48c9-b17d-ddc2b7bdb47f", label: "Option 03" },
+      { id: "b4cb3cf9-44f8-42ea-93f1-b02fceefbb0c", label: "Option 04" },
+      { id: "4879e8c2-eb00-4c5c-bc63-7c4a1963e145", label: "Option 05" }
     ]
   })
 };
