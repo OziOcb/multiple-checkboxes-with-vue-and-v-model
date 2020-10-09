@@ -5,7 +5,7 @@ export const state = () => ({
   selectedItemsPrice: 0,
   selectedItemsIds: [],
 
-  basketItems: [...basketItemsArr]
+  basketItems: basketItemsArr
 });
 
 export const getters = {
