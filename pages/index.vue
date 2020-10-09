@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Wrapper from "@/components/Wrapper.vue";
 
 export default {
@@ -40,6 +40,16 @@ export default {
       getTotalPriceOfAllItems: "basket/getTotalPriceOfAllItems",
       getSelectedItemsPrice: "basket/getSelectedItemsPrice"
     })
+  },
+
+  methods: {
+    ...mapActions({
+      setAllItemsAsSelected: "basket/setAllItemsAsSelected"
+    })
+  },
+
+  created() {
+    this.setAllItemsAsSelected();
   }
 };
 </script>

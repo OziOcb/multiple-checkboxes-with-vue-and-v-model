@@ -40,13 +40,8 @@ export default {
 
   methods: {
     ...mapActions({
-      updateSelectedItemsIds: "basket/updateSelectedItemsIds",
-      setAllItemsAsSelected: "basket/setAllItemsAsSelected"
+      updateSelectedItemsIds: "basket/updateSelectedItemsIds"
     })
-  },
-
-  created() {
-    this.setAllItemsAsSelected();
   }
 };
 </script>
