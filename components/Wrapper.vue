@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Checkbox v-model="selectedItemsIds" :value="itemProps.id">
+    <Checkbox v-model="selectedItemsIds" :value="itemProps">
       {{ itemProps.label }}
     </Checkbox>
   </div>
@@ -28,8 +28,12 @@ export default {
         return this.getSelectedItemsIds;
       },
       set(newSelectedItemsIds) {
-        this.updateSelectedItemsIds(newSelectedItemsIds);
-        return newSelectedItemsIds;
+        this.updateSelectedItemsIds(newSelectedItemsIds.newArray);
+
+        console.log(
+          "newSelectedItemsIds.price \n ->",
+          newSelectedItemsIds.price
+        );
       }
     }
   },
