@@ -1,16 +1,25 @@
 <template>
-  <div style="display: flex">
-    <div class="itemsBox">
-      <Wrapper v-for="item in getBasketItems" :key="item.id" :item-props="item">
-        {{ item.label }}
-      </Wrapper>
-    </div>
+  <div>
+    <h2>Total Price = {{ getTotalPriceOfAllItems }}</h2>
+    <h2>Selected Items Price = {{ getSelectedItemsPrice }}</h2>
 
-    <ul>
-      <li v-for="item in getSelectedItemsIds" :key="item">
-        {{ item }}
-      </li>
-    </ul>
+    <div style="display: flex">
+      <div class="itemsBox">
+        <Wrapper
+          v-for="item in getBasketItems"
+          :key="item.id"
+          :item-props="item"
+        >
+          {{ item.label }}
+        </Wrapper>
+      </div>
+
+      <ul>
+        <li v-for="item in getSelectedItemsIds" :key="item">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -26,7 +35,9 @@ export default {
   computed: {
     ...mapGetters({
       getBasketItems: "basket/getBasketItems",
-      getSelectedItemsIds: "basket/getSelectedItemsIds"
+      getSelectedItemsIds: "basket/getSelectedItemsIds",
+      getTotalPriceOfAllItems: "basket/getTotalPriceOfAllItems",
+      getSelectedItemsPrice: "basket/getSelectedItemsPrice"
     })
   }
 };
