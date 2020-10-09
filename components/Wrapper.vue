@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <div>wrapper component</div>
-
+  <div class="wrapper">
     <Checkbox v-model="checkedItems" :value="item.id" @change="onChange">
       checkbox label
     </Checkbox>
-
-    <br />
   </div>
 </template>
 
@@ -47,3 +43,11 @@ export default {
   }
 };
 </script>
+
+<style>
+.wrapper {
+  padding: 5px;
+  margin-bottom: 3px;
+  background-color: #ada;
+}
+</style>

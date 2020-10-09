@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <br />
-    <div>{{ myCheckBoxModel }}</div>
-    <br />
+  <div style="display: flex">
+    <div>
+      <Wrapper
+        v-for="item in checkOptions"
+        :key="item.id"
+        :item="item"
+        v-model="myCheckBoxModel"
+      >
+        {{ item.label }}
+      </Wrapper>
+    </div>
 
-    <Wrapper
-      v-for="item in checkOptions"
-      :key="item.id"
-      :item="item"
-      v-model="myCheckBoxModel"
-    >
-      {{ item.label }}
-    </Wrapper>
+    <ul>
+      <li v-for="item in myCheckBoxModel" :key="item">
+        {{ item }}
+      </li>
+    </ul>
   </div>
 </template>
 
