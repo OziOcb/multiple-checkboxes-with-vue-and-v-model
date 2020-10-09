@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Checkbox v-model="selectedItemsIds" :itemId="itemProps.id">
-      {{ itemProps.label }}
+      {{ indexProps + 1 }}
     </Checkbox>
   </div>
 </template>
@@ -16,6 +16,10 @@ export default {
   props: {
     itemProps: {
       type: Object,
+      required: true
+    },
+    indexProps: {
+      type: Number,
       required: true
     }
   },

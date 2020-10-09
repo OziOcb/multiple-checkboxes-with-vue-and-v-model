@@ -3,7 +3,7 @@ import { basketItemsArr } from "~/basketItems";
 export const state = () => ({
   totalPrice: 0,
   selectedItemsPrice: 0,
-  selectedItemsIds: ["ID_07"],
+  selectedItemsIds: ["911c7664-bc0d-4905-ad66-1045ce17a6b3"],
 
   basketItems: [...basketItemsArr]
 });
@@ -17,14 +17,14 @@ export const getters = {
   },
   getTotalPriceOfAllItems: state => {
     return state.basketItems.reduce(
-      (acc, currentValue) => acc + currentValue.price,
+      (acc, currentValue) => acc + currentValue.totalPrice,
       0
     );
   },
   getSelectedItemsPrice: state => {
     return state.basketItems
       .filter(item => state.selectedItemsIds.includes(item.id))
-      .reduce((acc, currentItem) => acc + currentItem.price, 0);
+      .reduce((acc, currentItem) => acc + currentItem.totalPrice, 0);
   }
 };
 

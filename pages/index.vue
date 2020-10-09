@@ -6,17 +6,18 @@
     <div style="display: flex">
       <div class="itemsBox">
         <Wrapper
-          v-for="item in getBasketItems"
+          v-for="(item, index) in getBasketItems"
           :key="item.id"
           :item-props="item"
+          :indexProps="index"
         >
           {{ item.label }}
         </Wrapper>
       </div>
 
       <ul>
-        <li v-for="item in getSelectedItemsIds" :key="item">
-          {{ item }}
+        <li v-for="(item, index) in getSelectedItemsIds" :key="item">
+          {{ index }}. {{ item }}
         </li>
       </ul>
     </div>
@@ -45,11 +46,12 @@ export default {
 
 <style>
 .itemsBox {
-  width: 200px;
+  width: 400px;
 }
 
 ul {
-  font-size: 14px;
+  font-size: 12px;
   padding-left: 24px;
+  list-style: none;
 }
 </style>
