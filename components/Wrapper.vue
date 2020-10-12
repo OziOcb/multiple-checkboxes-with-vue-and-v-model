@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Checkbox v-model="selectedItemsIds" :itemId="itemProps.id">
+    <Checkbox :itemId="itemProps.id">
       {{ indexProps + 1 }}
     </Checkbox>
   </div>
@@ -22,26 +22,6 @@ export default {
       type: Number,
       required: true
     }
-  },
-
-  computed: {
-    ...mapGetters({ getSelectedItemsIds: "basket/getSelectedItemsIds" }),
-
-    selectedItemsIds: {
-      get() {
-        return this.getSelectedItemsIds;
-      },
-      set(newSelectedItemsIds) {
-        this.updateSelectedItemsIds(newSelectedItemsIds);
-        return newSelectedItemsIds;
-      }
-    }
-  },
-
-  methods: {
-    ...mapActions({
-      updateSelectedItemsIds: "basket/updateSelectedItemsIds"
-    })
   }
 };
 </script>

@@ -13,17 +13,10 @@
 </template>
 
 <script>
-export default {
-  model: {
-    prop: "selectedItemsIdsProps",
-    event: "changeState"
-  },
+import { mapGetters, mapActions } from "vuex";
 
+export default {
   props: {
-    selectedItemsIdsProps: {
-      type: Array,
-      required: true
-    },
     itemId: {
       type: String,
       required: true
@@ -31,14 +24,22 @@ export default {
   },
 
   computed: {
+    ...mapGetters({ getSelectedItemsIds: "basket/getSelectedItemsIds" }),
+
     selectedItemsIds: {
       get() {
-        return this.selectedItemsIdsProps;
+        return this.getSelectedItemsIds;
       },
-      set(newSelectedItemsIdsArray) {
-        this.$emit("changeState", newSelectedItemsIdsArray);
+      set(newSelectedItemsIds) {
+        this.updateSelectedItemsIds(newSelectedItemsIds);
       }
     }
+  },
+
+  methods: {
+    ...mapActions({
+      updateSelectedItemsIds: "basket/updateSelectedItemsIds"
+    })
   }
 };
 </script>

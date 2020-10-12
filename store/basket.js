@@ -1,4 +1,4 @@
-import { basketItemsArr } from "~/basketItems";
+import { basketItemsArr } from "~/basketItems-100";
 
 export const state = () => ({
   totalPrice: 0,

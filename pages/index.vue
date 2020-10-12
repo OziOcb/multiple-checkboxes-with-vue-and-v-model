@@ -56,8 +56,8 @@ export default {
 
 <style>
 .itemsBox {
-  min-width: 800px;
-  width: 800px;
+  min-width: 400px;
+  width: 400px;
 }
 
 ul {
